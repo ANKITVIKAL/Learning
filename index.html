@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Stock Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-chart-line"></i> Real-Time Stock Dashboard</h1>
+            <div class="last-updated">
+                Last updated: <span id="lastUpdated">--</span>
+            </div>
+        </header>
+
+        <div class="controls">
+            <div class="search-container">
+                <input type="text" id="stockInput" placeholder="Enter stock symbol (e.g., AAPL, GOOGL, MSFT)" maxlength="10">
+                <button id="addStock"><i class="fas fa-plus"></i> Add Stock</button>
+            </div>
+            <div class="refresh-controls">
+                <button id="refreshAll"><i class="fas fa-sync-alt"></i> Refresh All</button>
+                <label class="auto-refresh">
+                    <input type="checkbox" id="autoRefresh" checked>
+                    Auto-refresh (30s)
+                </label>
+            </div>
+        </div>
+
+        <div class="dashboard-grid" id="stockGrid">
+            <!-- Stock cards will be dynamically added here -->
+        </div>
+
+        <div class="charts-section">
+            <div class="chart-container">
+                <h3>Portfolio Performance</h3>
+                <canvas id="portfolioChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3>Market Overview</h3>
+                <canvas id="marketChart"></canvas>
+            </div>
+        </div>
+
+        <div class="market-summary">
+            <h3>Market Indices</h3>
+            <div class="indices-grid" id="indicesGrid">
+                <!-- Market indices will be added here -->
+            </div>
+        </div>
+    </div>
+
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="spinner"></div>
+        <p>Loading stock data...</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
